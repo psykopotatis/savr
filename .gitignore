@@ -1,0 +1,7 @@
+node_modules/
+.cache/
+.idea
+__pycache__/
+venv/
+_settings.py
+*.pyc
