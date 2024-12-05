@@ -85,3 +85,7 @@ df.to_csv("latest_agent_holdings_with_details.csv", index=False)
 
 # Print a confirmation message
 print("The latest data has been saved to 'latest_agent_holdings_with_details.csv'.")
+
+# Convert DataFrame to a tabulated string and print it
+table = tabulate(df, headers="keys", tablefmt="plain", showindex=False)
+print(table)
