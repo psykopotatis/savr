@@ -74,6 +74,10 @@ for holding in agent_holdings:
 # Create a DataFrame
 df = pd.DataFrame(agent_holdings)
 
+# Remove 'agentId' column from the DataFrame
+if "agentId" in df.columns:
+    df = df.drop(columns=["agentId"])
+
 # Display the DataFrame
 # import ace_tools as tools; tools.display_dataframe_to_user(name="Agent Holdings with Details", dataframe=df)
 # Save the DataFrame to a CSV file
