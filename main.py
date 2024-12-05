@@ -2,10 +2,15 @@ import requests
 import pandas as pd
 from tabulate import tabulate
 
+# nexam
+company_id = "01934971-a3a6-700f-9af2-eb3153f97d46"
+# nanologica
+# company_id = "01934971-ebc2-719e-9ebe-90b0749f7de6"
+
 # URLs for holdings
 holdings_urls = [
-    "https://iu.api.savr.com/companies-v2/01934971-ebc2-719e-9ebe-90b0749f7de6/holdings?page=1&pageSize=25",
-    "https://iu.api.savr.com/companies-v2/01934971-ebc2-719e-9ebe-90b0749f7de6/holdings?page=2&pageSize=25"
+    "https://iu.api.savr.com/companies-v2/%s/holdings?page=1&pageSize=25" % company_id,
+    "https://iu.api.savr.com/companies-v2/%s/holdings?page=2&pageSize=25" % company_id
 ]
 
 agents_base_url = "https://iu.api.savr.com/agents"
