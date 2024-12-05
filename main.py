@@ -74,9 +74,13 @@ for holding in agent_holdings:
 # Create a DataFrame
 df = pd.DataFrame(agent_holdings)
 
-# Remove 'agentId' column from the DataFrame
-if "agentId" in df.columns:
-    df = df.drop(columns=["agentId"])
+# Remove columns from the DataFrame
+columns_to_remove = ["agentId", "numberOfVotes", "percentageOfVotes"]
+df = df.drop(columns=[col for col in columns_to_remove if col in df.columns])
+
+# Reorder columns to move 'agentName' to the first and 'countryCode' to the second position
+columns_order = ["agentName", "countryCode"] + [col for col in df.columns if col not in ["agentName", "countryCode"]]
+df = df[columns_order]
 
 # Display the DataFrame
 # import ace_tools as tools; tools.display_dataframe_to_user(name="Agent Holdings with Details", dataframe=df)
@@ -87,5 +91,7 @@ df.to_csv("latest_agent_holdings_with_details.csv", index=False)
 print("The latest data has been saved to 'latest_agent_holdings_with_details.csv'.")
 
 # Convert DataFrame to a tabulated string and print it
-table = tabulate(df, headers="keys", tablefmt="plain", showindex=False)
+# the index to start at 1 instead of 0
+df.index = range(1, len(df) + 1)
+table = tabulate(df, headers="keys", tablefmt="plain", showindex=True)
 print(table)
