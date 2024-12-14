@@ -3,7 +3,11 @@ import pandas as pd
 from tabulate import tabulate
 
 # nexam
-company_id = "01934971-a3a6-700f-9af2-eb3153f97d46"
+# company_id = "01934971-a3a6-700f-9af2-eb3153f97d46"
+
+# ascelia
+company_id = "01934971-853b-73a4-a7db-41a1cff96f37"
+
 # nanologica
 # company_id = "01934971-ebc2-719e-9ebe-90b0749f7de6"
 
